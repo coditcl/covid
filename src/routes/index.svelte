@@ -3,10 +3,12 @@
  
  export async function preload(){
    try{
+     throw new Error('This is bad :(');
       const usStats = await requests.usStats();
       return {usStats};
    } catch(e) {
-
+     this.error(500, "There was an error in calling the api, pleasy try again in 5 minutes.");
+     return;
    }
  }
 </script>
