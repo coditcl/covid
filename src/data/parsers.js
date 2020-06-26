@@ -17,6 +17,14 @@ function historicUS(historicData){
 
 }
 
+function historicState(state, historicData){
+   const stateHistoric = historicData.filter(
+      d => d.state === state
+   );
+   return parseHistoric(stateHistoric);
+
+}
+
 function parseHistoric(historicData){
    return[
       {
@@ -87,5 +95,5 @@ function parseStats(rawStats){
 }
 
 export default{
-    usStats, stateStats, historicUS,
+    usStats, stateStats, historicUS, historicState,
 };

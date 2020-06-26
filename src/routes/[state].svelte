@@ -9,12 +9,13 @@ export async function preload(page){
      this.error(404, 'State Not Found');
      return;
    }
-
+   const fullStateName = stateNames.find(s => s.abbreviation === state).name;
    try{
       
       const stats = await requests.stateStats(state);
+      const historic = await requests.historicState(state);
       console.log(stats);
-      return{ state, stats};
+      return{ state: fullStateName, stats, historic};
 
 
    }catch(e){
@@ -36,6 +37,8 @@ import TableContainer from '../components/TableContainer.svelte';
  export let state;
 
  export let stats;
+ 
+ export let historic;
 
 </script>
 
@@ -51,4 +54,4 @@ import TableContainer from '../components/TableContainer.svelte';
 
 <CovidStat {...stats} />
 
-<CovidChart />
+<CovidChart historicData={historic} title="{state} COVID 19" />
