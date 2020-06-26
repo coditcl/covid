@@ -44,4 +44,4 @@ console.log(statesData, "statesData");
 
 <CovidChart historicData={historicUS} title="US COVID 19" />
 
-<TableContainer />
+<TableContainer data={statesData} />
