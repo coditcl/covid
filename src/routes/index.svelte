@@ -28,7 +28,8 @@ console.log(usStats, "usStats");
   </div>
 </div>
 
-<CovidStat />
+<CovidStat {...usStats}
+ />
 
 <CovidChart />
 
