@@ -6,8 +6,9 @@
      
       const usStats = await requests.usStats();
       const historicUS = await requests.historicUS();
+      const statesData = await requests.statesData();
 
-      return {usStats, historicUS};
+      return {usStats, historicUS, statesData};
    } catch(e) {
      console.log(e);
      this.error(500, "There was an error in calling the api, pleasy try again in 5 minutes.");
@@ -21,9 +22,11 @@ import CovidChart from '../components/CovidChart.svelte';
 import TableContainer from '../components/TableContainer.svelte';
 export let usStats;
 export let historicUS;
+export let statesData;
 
 console.log(historicUS, "historicUS");
 console.log(usStats, "usStats");
+console.log(statesData, "statesData");
 </script>
 
 <svelte:head>
