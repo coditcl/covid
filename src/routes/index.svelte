@@ -5,8 +5,11 @@
    try{
      
       const usStats = await requests.usStats();
-      return {usStats};
+      const historicUS = await requests.historicUS();
+
+      return {usStats, historicUS};
    } catch(e) {
+     console.log(e);
      this.error(500, "There was an error in calling the api, pleasy try again in 5 minutes.");
      return;
    }
@@ -17,6 +20,8 @@ import CovidStat from '../components/CovidStat.svelte';
 import CovidChart from '../components/CovidChart.svelte';
 import TableContainer from '../components/TableContainer.svelte';
 export let usStats;
+export let historicUS;
+console.log(historicUS, "historicUS");
 console.log(usStats, "usStats");
 </script>
 
