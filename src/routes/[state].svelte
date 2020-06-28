@@ -14,7 +14,7 @@ export async function preload(page){
       
       const stats = await requests.stateStats(state);
       const historic = await requests.historicState(state);
-      console.log(stats);
+      
       return{ state: fullStateName, stats, historic};
 
 
